@@ -1,0 +1,80 @@
+GET http://localhost:3001/api/ping
+
+###
+GET http://localhost:3001/api/diagnoses
+
+###
+GET http://localhost:3001/api/patients
+
+###
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "SHAHEEN BRO",
+    "dateOfBirth": "1990-01-01",
+    "ssn": "1234567890",
+    "gender": "male",
+    "occupation": "Software Engineer"
+}
+
+###
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    // Missing 'name' field
+    "dateOfBirth": "1990-01-01",
+    "ssn": "1234567890",
+    "gender": "male",
+    "occupation": "Software Engineer"
+}
+
+###
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Jane Doe",
+    // Invalid date format
+    "dateOfBirth": "January 1st, 1990",
+    "ssn": "1234567890",
+    "gender": "female",
+    "occupation": "Designer"
+}
+
+###
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Chris User",
+    "dateOfBirth": "1992-05-03",
+    "ssn": "0987654321",
+    // Missing 'gender' field
+    "occupation": "Developer"
+}
+
+###
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Alex Test",
+    "dateOfBirth": "1985-11-21",
+    "ssn": "111222333",
+    // Invalid gender value
+    "gender": "robot", 
+    "occupation": "QA"
+}
+
+###
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Invalid Occupation",
+    "dateOfBirth": "1985-11-21",
+    "ssn": "444555666",
+    "gender": "other"
+}
